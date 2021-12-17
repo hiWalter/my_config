@@ -38,6 +38,7 @@ set cursorline
 set showmatch
 set mouse=ar
 set smartcase	
+set ignorecase
 set foldenable
 set foldmethod=marker
 set foldmarker={{{,}}}
@@ -69,13 +70,21 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-" peaksea setting
+
 if ! has("gui_running")
     set t_Co=256
 endif
 " feel free to choose :set background=light for a different style
-set background=dark
+set background=dark 	
+" Need to UNCOMMENT some sentence for transparency in peaksea!!!
 colors peaksea
+
+
+
+
+
+
+
 
 " COC CONFIG {{{ 
 
@@ -241,7 +250,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " }}}
-
 
 
 
