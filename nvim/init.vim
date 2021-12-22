@@ -1,4 +1,4 @@
-"===		 :::::::::::::::::                   |,ｨ                 {{{
+"===		 :::::::::::::::::                   |,ｨ                
 "===　　 　 　 　!:::::::::::::::      　            /!
 "===　　　　　　 i::::::::::::::    　   _'"ﾞﾞﾞﾞﾞ"''/ l
 "===		  |::::::::::::	      _'  ....     /  l
@@ -16,41 +16,9 @@
 "===　 　   /　　　　　.::::::::::::::::::::::　  　::::::\        ＼:.:.:.:.:
 "===　     /　　　　....::::::::::::::::::::　　　 　 :::::\         \:.:.:.:.:
 "
-"=============    __    _ __              _               _         
-"=============   / /_  (_) /______ ______(_)  ____ _   __(_)___ ___ 
-"=============  / __ \/ / //_/ __ `/ ___/ /  / __ \ | / / / __ `__ \
-"============= / / / / / ,< / /_/ / /  / /  / / / / |/ / / / / / / /
-"=============/_/ /_/_/_/|_|\__,_/_/  /_/  /_/ /_/|___/_/_/ /_/ /_/ 
-"=============
-"
 "================
 "===TO-DO list===
 "================
-" }}}
-
-
-" BASIC CONFIGURATION
-set number relativenumber
-set wildmenu
-set path+=**
-set encoding=UTF-8
-set cursorline
-set showmatch
-set mouse=ar
-set smartcase	
-set ignorecase
-set foldenable
-set foldmethod=marker
-set foldmarker={{{,}}}
-
-" Keymap setting - squence: all, i, n,..
-map W :w<CR>
-map Q :q<CR>
-map R :source %<CR>
-
-imap ;; <Esc>
-
-nmap <space> :
 
 " Plugin  
 call plug#begin('~/.vim/plugged')
@@ -58,35 +26,182 @@ call plug#begin('~/.vim/plugged')
 	Plug 'fatih/vim-go'			" Go 
 	Plug 'rust-lang/rust.vim'		" Rust
 	
-	" Tools for coding 
+	" Tools for coding
+	Plug 'ianding1/leetcode.vim' 		" Leetcode
 	Plug 'scrooloose/nerdtree'		" nerdtree
-	Plug 'vim-scripts/peaksea'		" peaksea
-	Plug 'vim-airline/vim-airline'		" airline
-	Plug 'tpope/vim-fugitive'		" fugitive
-	Plug 'w0rp/ale'					" ale 
+	Plug 'vim-airline/vim-airline'			" airline
+	Plug 'tpope/vim-fugitive'				" fugitive
+	Plug 'w0rp/ale'						" ale 
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}		" coc.vim
-	Plug 'junegunn/fzf'			" fuzzy file finder
-	
+	Plug 'junegunn/fzf'			" fuzzy file finder	
+	Plug 'honza/vim-snippets'
 
 call plug#end()
 
 
-if ! has("gui_running")
-    set t_Co=256
-endif
-" feel free to choose :set background=light for a different style
-set background=dark 	
-" Need to UNCOMMENT some sentence for transparency in peaksea!!!
-colors peaksea
+" BASIC CONFIGURATION
+set number 		relativenumber
+set wildmenu
+set path+=**
+set encoding=UTF-8
+set showmatch
+set mouse=ar
+set smartcase 		ignorecase
+set foldenable  	foldmethod=marker 	foldmarker={{{,}}}
+set noswapfile
+set cursorline
+
+source ~/.config/nvim/plugin.vim
+
+try
+	set undodir=~/.config/nvim/undodir undofile
+catch
+endtry
+
+syntax enable
+syntax on
+
+" Keymap setting - squence: all, i, n,..
+
+let mapleader = ";"
+
+
+map <leader>w :w<CR>
+map <leader>q :q<CR>
+map <leader>r :source $MYVIMRC<CR>
+map <leader>h :noh<CR>
+map <leader>s :vsplit<CR>
+
+map <leader>t :tabe<CR>
+
+"noremap h 5h
+"noremap j 5j
+"noremap k 5k 
+"noremap l 5l
+
+imap ;; <Esc>
+
+nmap <space> :
 
 
 
 
+"===
+"===leetcode-vim
+"===
+let g:leetcode_browser='chrome'
+
+"===
+"===NERDTree
+"===
+map <leader>n :NERDTreeToggle<CR>
+
+"===
+"=== color-scheme -- revise from peaksea
+"===
+    " 256color dark terminal support here
+    hi Normal		ctermfg=252	ctermbg=234	cterm=NONE
+    " Comment/Uncomment the following line to disable/enable transparency
+    hi Normal		ctermfg=252	ctermbg=NONE	cterm=NONE
+    hi Comment		ctermfg=186	ctermbg=NONE	cterm=NONE
+    hi Constant		ctermfg=110	ctermbg=NONE	cterm=NONE
+    hi Number		ctermfg=179	ctermbg=NONE	cterm=NONE
+    hi Identifier	ctermfg=219	ctermbg=NONE	cterm=NONE
+    hi Statement	ctermfg=153	ctermbg=NONE	cterm=NONE
+    hi PreProc		ctermfg=84	ctermbg=NONE	cterm=NONE
+    hi Type		ctermfg=153	ctermbg=NONE	cterm=NONE
+    hi Special		ctermfg=179	ctermbg=NONE	cterm=NONE
+    hi Error		ctermfg=209	ctermbg=NONE	cterm=NONE
+    hi Todo		ctermfg=88	ctermbg=186	cterm=NONE
+    hi Search		ctermfg=NONE	ctermbg=88	cterm=NONE
+    hi Visual		ctermfg=16	ctermbg=153	cterm=NONE
+    hi Cursor		ctermfg=16	ctermbg=46	cterm=NONE
+    " NOTE THIS IS IN THE COOL SECTION
+    hi CursorIM		ctermfg=16	ctermbg=219	cterm=NONE
+    hi StatusLine	ctermfg=16	ctermbg=153	cterm=NONE
+    hi LineNr		ctermfg=249	ctermbg=NONE	cterm=NONE
+    hi Question		ctermfg=16	ctermbg=186	cterm=NONE
+    hi ModeMsg		ctermfg=fg	ctermbg=18	cterm=NONE
+    hi VisualNOS	ctermfg=fg	ctermbg=18	cterm=NONE
+    hi SpecialKey	ctermfg=153	ctermbg=NONE	cterm=NONE
+    hi NonText		ctermfg=69	ctermbg=233	cterm=NONE
+    " Comment/Uncomment the following line to disable/enable transparency
+    hi NonText		ctermfg=69	ctermbg=NONE	cterm=NONE
+    hi Directory	ctermfg=110	ctermbg=NONE	cterm=NONE
+    hi ErrorMsg		ctermfg=186	ctermbg=88	cterm=NONE
+    hi MoreMsg		ctermfg=150	ctermbg=NONE	cterm=NONE
+    hi Title		ctermfg=219	ctermbg=NONE	cterm=NONE
+    hi WarningMsg	ctermfg=209	ctermbg=NONE	cterm=NONE
+    hi WildMenu		ctermfg=16	ctermbg=186	cterm=NONE
+    hi Folded		ctermfg=NONE	ctermbg=22	cterm=NONE
+    hi FoldColumn	ctermfg=254	ctermbg=28	cterm=NONE
+    hi DiffAdd		ctermfg=NONE	ctermbg=18	cterm=NONE
+    hi DiffChange	ctermfg=NONE	ctermbg=90	cterm=NONE
+    hi DiffDelete	ctermfg=69	ctermbg=234	cterm=NONE
+    hi DiffText		ctermfg=16	ctermbg=150	cterm=NONE
+    hi SignColumn	ctermfg=254	ctermbg=28	cterm=NONE
+    hi IncSearch	ctermfg=16	ctermbg=252	cterm=NONE
+    hi StatusLineNC	ctermfg=16	ctermbg=250	cterm=NONE
+    hi VertSplit	ctermfg=16	ctermbg=250	cterm=NONE
+    hi Underlined	ctermfg=111	ctermbg=NONE	cterm=underline 
+    hi Ignore		ctermfg=16	ctermbg=NONE
+    " NOTE THIS IS IN THE COOL SECTION
+    if v:version >= 700
+      if has('spell')
+        " the ctermsp= is not supported in Vim 7 we simply ignored
+        if 0
+          hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=209
+          hi SpellCap	cterm=undercurl	ctermbg=NONE	ctermfg=69
+          hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=219
+          hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=153
+        else
+          hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+          hi SpellCap	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+          hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+          hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+        endif
+      endif
+      hi Pmenu		ctermfg=fg	ctermbg=90
+      hi PmenuSel	ctermfg=16	ctermbg=252	cterm=NONE
+      hi PmenuSbar	ctermfg=fg	ctermbg=18	cterm=NONE
+      hi PmenuThumb	ctermfg=fg	ctermbg=28	cterm=NONE
+      hi TabLine	ctermfg=fg	ctermbg=28	cterm=NONE
+      hi TabLineFill	ctermfg=fg	ctermbg=28	cterm=NONE
+      hi TabLineSel	ctermfg=fg	ctermbg=NONE	cterm=NONE
+      hi CursorColumn	ctermfg=NONE	ctermbg=88	cterm=NONE
+      hi CursorLine	ctermfg=NONE	ctermbg=NONE	cterm=underline
+      hi MatchParen	ctermfg=NONE	ctermbg=90
+      hi TabLine	cterm=underline  
+      hi TabLineFill	cterm=underline  
+      hi Underlined	cterm=underline  
+      hi CursorLine	cterm=underline 
+    endif
+
+" Links:
+"
+" COLOR LINKS DEFINE START
+
+hi link		String		Constant
+" Character must be different from strings because in many languages
+" (especially C, C++) a 'char' variable is scalar while 'string' is pointer,
+" mistaken a 'char' for a 'string' will cause disaster!
+hi link		Character	Number
+hi link		SpecialChar	LineNr
+hi link		Tag		Identifier
+hi link		cCppOut		LineNr
+" The following are not standard hi links, 
+" these are used by DrChip
+hi link		Warning		MoreMsg
+hi link		Notice		Constant
+" these are used by Calendar
+hi link		CalToday	PreProc
+" these are used by TagList
+hi link		MyTagListTagName	IncSearch
+hi link		MyTagListTagScope	Constant
 
 
 
-
-" COC CONFIG {{{ 
+" COC CONFIG 
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -247,10 +362,9 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" }}}
-
-
-
-
+"===
+"===NERDTree
+"===
+let NERDTreeShowHidden=1
+let NERDTreeShowLineNumbers=1
