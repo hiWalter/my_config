@@ -9,5 +9,5 @@ alias x86_64="env /usr/bin/arch -x86_64 /bin/zsh"
 alias ga="git add ."
 alias gc="git clone"
 alias gm="git commit -a"
-alias gp="git push --set-upstream original master"
+alias gp="git push --set-upstream origin master"
 
