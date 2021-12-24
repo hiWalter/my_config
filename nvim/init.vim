@@ -20,6 +20,7 @@
 "===TO-DO list===
 "================
 
+
 " Plugin  
 call plug#begin('~/.vim/plugged')
 	" Language support
@@ -35,7 +36,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}		" coc.vim
 	Plug 'junegunn/fzf'			" fuzzy file finder	
 	Plug 'honza/vim-snippets'
-
+	Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 
@@ -74,10 +75,10 @@ map <leader>s :vsplit<CR>
 
 map <leader>t :tabe<CR>
 
-"noremap h 5h
-"noremap j 5j
-"noremap k 5k 
-"noremap l 5l
+noremap H 5h
+noremap J 5j
+noremap K 5k 
+noremap L 5l
 
 imap ;; <Esc>
 

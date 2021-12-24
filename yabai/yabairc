@@ -1,3 +1,8 @@
+
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
 #!/usr/bin/env sh
 
 # the scripting-addition must be loaded manually if
@@ -43,6 +48,9 @@ yabai -m config top_padding                  12
 yabai -m config bottom_padding               12
 yabai -m config left_padding                 12
 yabai -m config right_padding                12
-yabai -m config window_gap                   06
+yabai -m config window_gap                   12
+
+# externel config space for simple-bar
+yabai -m config external_bar all:27:0
 
 echo "yabai configuration loaded.."
