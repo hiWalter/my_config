@@ -1,19 +1,12 @@
 # open Terminal 
-lctrl + alt + cmd -return : open -n -a Alacritty
 
 # focus window
-lctrl + alt + cmd - h : yabai -m window --focus west
-lctrl + alt + cmd - j : yabai -m window --focus south 
-lctrl + alt + cmd - k : yabai -m window --focus north
-lctrl + alt + cmd - l : yabai -m window --focus east
+lctrl - h : yabai -m window --focus west
+lctrl - j : yabai -m window --focus south 
+lctrl - k : yabai -m window --focus north
+lctrl - l : yabai -m window --focus east
 
 # fast focus desktop
-lctrl + alt + cmd - 1 : yabai -m space --focus 1
-lctrl + alt + cmd - 2 : yabai -m space --focus 2
-lctrl + alt + cmd - 3 : yabai -m space --focus 3
-lctrl + alt + cmd - 4 : yabai -m space --focus 4
-lctrl + alt + cmd - 5 : yabai -m space --focus 5
-lctrl + alt + cmd - 6 : yabai -m space --focus 6
 
 
 # ############################################################### #

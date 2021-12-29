@@ -1,9 +1,10 @@
 alias vi="nvim"
 alias py="python3"
 alias s="source ~/.zshrc"
+alias c=clear
 
-alias arm64="env /usr/bin/arch -arm64 /bin/zsh"
-alias x86_64="env /usr/bin/arch -x86_64 /bin/zsh"
+alias a="env /usr/bin/arch -arm64 /bin/zsh"
+alias x="env /usr/bin/arch -x86_64 /bin/zsh"
 
 # git alias
 alias ga="git add ."
