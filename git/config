@@ -1,2 +1,9 @@
+# As it is sync in Github
+# DO NOT leave private message!
+
 [core]
     editor = nvim
+[usr]
+	name = hiWalter
+[init]
+	defaultBranch = main
