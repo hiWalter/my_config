@@ -1,40 +1,7 @@
-" Plugin  
-call plug#begin('~/.vim/plugged')
-	" Language support
-	Plug 'fatih/vim-go'			" Go 
-	Plug 'rust-lang/rust.vim'		" Rust
-	
-	" Tools for coding
-	Plug 'scrooloose/nerdtree'				" nerdtree
-	Plug 'vim-airline/vim-airline'				" airline
-	Plug 'tpope/vim-fugitive'				" fugitive
-	Plug 'w0rp/ale'						" ale 
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}		" coc.vim
-	Plug 'junegunn/fzf'					" fuzzy file finder	
-	Plug 'honza/vim-snippets'
-	Plug 'terryma/vim-multiple-cursors'
-call plug#end()
-
-
-
-" COC CONFIG 
-
-" TextEdit might fail if hidden is not set.
-set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=2
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -61,7 +28,6 @@ endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif

@@ -27,6 +27,24 @@
 " init-shellScript
 " multi-cursor
 
+" Plugin  
+call plug#begin('~/.vim/plugged')
+	" Language support
+	Plug 'fatih/vim-go'	
+	Plug 'rust-lang/rust.vim'
+	
+	" Tools for coding
+	Plug 'scrooloose/nerdtree'
+	Plug 'tpope/vim-fugitive'				" fugitive
+    Plug 'itchyny/lightline.vim'
+
+	Plug 'w0rp/ale'						" ale 
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}		" coc.vim
+	Plug 'junegunn/fzf'					" fuzzy file finder	
+	Plug 'honza/vim-snippets'
+	Plug 'terryma/vim-multiple-cursors'
+call plug#end()
+
 " BASIC CONFIGURATION ::
 "
 " numbers
@@ -64,12 +82,25 @@ set ruler
 " a more powerful backspace?
 " set backspace=indent,eol,start
 
-" Tab and indentation
+"" Tab and indentation
 " Tab space 1 tab == 4 spaces
 " use softtabstop=4 if you want to replace tab with space
 set expandtab       smarttab
 set shiftwidth=4    tabstop=4
 set autoindent      smartindent     cindent
+
+""" +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
+"""                            COC.set
+""" +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
+"" No backup setting 
+set nobackup        nowritebackup   
+
+"" Show less in Pmenu
+set updatetime=100
+
+set shortmess+=c
+""" +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++ +++++++++++
+
 
 " MY vim runtime path(Mac) : $VIMRUNTIME=/usr/share/vim/vim82
 
@@ -77,7 +108,7 @@ set autoindent      smartindent     cindent
 
 
 source ~/.config/nvim/plugin.vim
-source ~/.config/nvim/color.vim
+source ~/.config/nvim/peaksea.vim
 
 try
 	set undodir=~/.config/nvim/undodir undofile
@@ -104,7 +135,17 @@ noremap L 5l
 
 imap jk <Esc>
 
-nmap <space> :
+
+"===
+"===coc.nvim
+"===
+let g:coc_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-vimlsp']
+
+inoremap <silent><expr> <c-W>o coc#refresh()
+
+
 
 "===
 "===leetcode-vim
@@ -120,5 +161,9 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeIgnore = ['\.DS_Store$']
 map <leader>n :NERDTreeToggle<CR>
 
-
-
+"===
+"===lightline
+"===
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }

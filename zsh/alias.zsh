@@ -12,3 +12,7 @@ alias gc="git clone"
 alias gm="git commit -a"
 alias gp="git push --set-upstream origin master"
 
+
+# nvim config alias
+alias nci="nvim ~/.config/nvim/init.vim"
+alias ncp="nvim ~/.config/nvim/plugin.vim"

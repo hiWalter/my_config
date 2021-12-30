@@ -3,7 +3,6 @@
 "===
 
 " 256color dark terminal support here
-hi Normal		ctermfg=252	ctermbg=234	cterm=NONE
 " Comment/Uncomment the following line to disable/enable transparency
 hi Normal		ctermfg=252	ctermbg=NONE	cterm=NONE
 hi Comment		ctermfg=186	ctermbg=NONE	cterm=NONE
@@ -64,11 +63,11 @@ if v:version >= 700
       hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
     endif
   endif
-  hi Pmenu		ctermfg=fg	ctermbg=90
+  hi Pmenu  		ctermfg=110	ctermbg=16
   hi PmenuSel		ctermfg=16	ctermbg=252	cterm=NONE
-  hi PmenuSbar 		ctermfg=fg	ctermbg=18	cterm=NONE
-  hi PmenuThumb		ctermfg=fg	ctermbg=28	cterm=NONE
-  hi TabLine		ctermfg=fg	ctermbg=28	cterm=NONE
+  hi PmenuSbar 		ctermfg=NONE	ctermbg=NONE	cterm=NONE
+  hi PmenuThumb		ctermfg=fg	ctermbg=NONE	cterm=NONE
+  hi TabLine		ctermfg=fg	ctermbg=NONE	cterm=NONE
   hi TabLineFill	ctermfg=fg	ctermbg=28	cterm=NONE
   hi TabLineSel		ctermfg=fg	ctermbg=NONE	cterm=NONE
   hi CursorColumn	ctermfg=NONE	ctermbg=88	cterm=NONE
