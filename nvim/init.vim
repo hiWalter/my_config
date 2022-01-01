@@ -141,7 +141,8 @@ imap jk <Esc>
 "===
 let g:coc_global_extensions = [
     \ 'coc-json',
-    \ 'coc-vimlsp']
+    \ 'coc-vimlsp',
+    \ ]
 
 inoremap <silent><expr> <c-W>o coc#refresh()
 

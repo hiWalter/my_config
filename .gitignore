@@ -1,5 +1,7 @@
 # ignore all files in nvim/undodir
 /nvim/undodir/
+/coc
 
 # ignore all .. files
 *.DS_Store
+
