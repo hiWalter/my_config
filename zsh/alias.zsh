@@ -1,5 +1,8 @@
 alias vi="nvim"
 alias py="python3"
+alias r="ranger"
+
+
 alias s="source ~/.zshrc"
 alias c=clear
 
